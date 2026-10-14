@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 360" width="100%" height="100%">
+  <defs>
+    <!-- Drop Shadow for the black food container -->
+    <filter id="boxShadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000000" flood-opacity="0.38"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+    <linearGradient id="containerRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="innerFood" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Black Takeaway Container (Outer Rim with Shadow) -->
+  <rect x="50" y="30" width="400" height="290" rx="36" fill="url(#containerRim)" stroke="#475569" stroke-width="3" filter="url(#boxShadow)"/>
+  
+  <!-- Container Inner Food Well -->
+  <rect x="68" y="48" width="364" height="254" rx="26" fill="url(#innerFood)" stroke="#0f172a" stroke-width="4"/>
+
+  <!-- Food Elements inside the container -->
+  
+    <!-- Blue Nasi Kerabu Dome -->
+    <ellipse cx="190" cy="175" rx="90" ry="70" fill="#2563eb" opacity="0.95"/>
+    <ellipse cx="190" cy="175" rx="75" ry="58" fill="#3b82f6" opacity="0.6"/>
+    <!-- Herbs on rice -->
+    <circle cx="170" cy="160" r="4" fill="#22c55e"/>
+    <circle cx="195" cy="155" r="5" fill="#15803d"/>
+    <circle cx="210" cy="170" r="4" fill="#4ade80"/>
+  
+
+  <!-- Main Protein / Dish Display -->
+  <g transform="translate(310, 175)">
+    <circle cx="0" cy="0" r="62" fill="rgba(255,255,255,0.06)"/>
+    <text x="0" y="24" font-size="64" text-anchor="middle">🥩</text>
+  </g>
+
+  <!-- Side Garnish Elements (Ulam, Sambal, Lime) -->
+  <circle cx="110" cy="100" r="14" fill="#15803d" opacity="0.85"/>
+  <circle cx="135" cy="90" r="10" fill="#22c55e" opacity="0.9"/>
+  <circle cx="380" cy="90" r="12" fill="#ef4444" opacity="0.8"/>
+  <circle cx="110" cy="240" r="14" fill="#eab308" opacity="0.85"/>
+
+  <!-- Subtle Texture Garnish Text -->
+  <text x="250" y="280" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" font-weight="700" fill="#cbd5e1" text-anchor="middle" letter-spacing="0.5">BUNGA KANTAN & ULAM</text>
+</svg>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO & Pengoptimuman Enjin Carian -->
+  <title>Nasi Kerabu Mak Jah | Nasi Kerabu di Sungai Petani</title>
+  <meta name="description" content="Nikmati nasi kerabu dan makanan tradisional Melayu bersama Nasi Kerabu Mak Jah di Sungai Petani. Hubungi kami untuk pertanyaan menu dan tempahan." />
+  <meta name="keywords" content="Nasi Kerabu Mak Jah, nasi kerabu Sungai Petani, nasi kerabu Kedah, makanan tradisional Melayu, ayam berempah, ulam segar" />
+  <meta name="author" content="Nasi Kerabu Mak Jah" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant.restaurant" />
+  <meta property="og:title" content="Nasi Kerabu Mak Jah | Nasi Kerabu di Sungai Petani" />
+  <meta property="og:description" content="Nikmati nasi kerabu dan makanan tradisional Melayu bersama Nasi Kerabu Mak Jah di Sungai Petani. Hubungi kami untuk pertanyaan menu dan tempahan." />
+  <meta property="og:image" content="assets/images/hero_nasi_kerabu.jpg" />
+  <meta property="og:locale" content="ms_MY" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Dancing Script (Untuk Konsep Rujukan) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Fail Gaya CSS Utama -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Schema.org Structured Data (Hanya Maklumat Sah) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Nasi Kerabu Mak Jah",
+    "slogan": "Keenakan Tradisi, Rasa Yang Dirindui",
+    "description": "Jualan nasi kerabu dan makanan tradisional Melayu di Sungai Petani, Kedah.",
+    "servesCuisine": "Masakan Tradisional Melayu, Nasi Kerabu",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sungai Petani",
+      "addressRegion": "Kedah",
+      "addressCountry": "MY"
+    },
+    "openingHours": "Mo-Su 14:00-23:00"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- 0. BAR KAWALAN ADMIN (Aktif bila admin log masuk) -->
+  <div id="adminTopBar" class="admin-top-bar" style="display: none;">
+    <div class="admin-bar-content">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <span class="admin-status-indicator">MOD ADMIN AKTIF (admin)</span>
+        <span style="font-size: 0.8rem; opacity: 0.9;">Anda boleh ubah data teks, menu, harga dan muat naik gambar sendiri.</span>
+      </div>
+      <div class="admin-bar-actions">
+        <button type="button" class="btn-admin-action" id="btnOpenCMS">⚙️ Panel Pengurusan (CMS)</button>
+        <button type="button" class="btn-admin-logout" id="btnAdminLogout">🚪 Log Keluar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. Bar Notis Rasmi & Status Penerbitan -->
+  <aside class="top-notice-bar" aria-label="Notis Rasmi">
+    <span class="top-notice-badge">Maklumat Rasmi</span>
+    <span>Laman Web Rasmi Nasi Kerabu Mak Jah — Sungai Petani, Kedah.</span>
+    <button type="button" class="top-notice-btn js-open-checklist">
+      📋 Senarai Semak Pemilik
+    </button>
+    <button type="button" class="top-notice-btn js-open-login" style="background: rgba(229,152,56,0.3); color: #fef08a;">
+      🔑 Login Admin
+    </button>
+  </aside>
+
+  <!-- 2. Header Bersih Menepati Rujukan Kanigiri -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <!-- Logo Jenama (Kiri) -->
+      <a href="#utama" class="brand-wordmark" aria-label="Nasi Kerabu Mak Jah">
+        <div class="brand-symbol-icon">
+          <!-- Ikon Tradisi Bunga Telang / Mangkuk -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </div>
+        <div class="brand-text-box">
+          <span class="brand-title">Nasi Kerabu Mak Jah</span>
+          <span class="brand-subtitle">Sungai Petani • Kedah</span>
+        </div>
+      </a>
+
+      <!-- Tindakan Kanan: Call Pill, Order Pill, Login Pill, Hamburger -->
+      <div class="nav-right-actions">
+        <!-- Call Pill Menepati Rujukan -->
+        <a href="#hubungi" class="nav-call-pill js-whatsapp-btn" aria-label="Hubungi WhatsApp">
+          <span class="call-icon-circle">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 3.99c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.11z"/></svg>
+          </span>
+          <span>CALL / WA: 012-345678</span>
+        </a>
+
+        <!-- Order Pill Button Menepati Rujukan -->
+        <button type="button" class="nav-order-pill js-cart-trigger" aria-label="Buka troli pesanan">
+          <span>Pesanan</span>
+          <span class="order-count-badge js-cart-badge" style="display: none;">0</span>
+        </button>
+
+        <!-- Butang Login Pentadbir (Menepati Rujukan LOGIN) -->
+        <button type="button" class="nav-login-pill js-open-login" aria-label="Log Masuk Pentadbir">
+          🔑 Login
+        </button>
+
+        <!-- Hamburger Icon Menepati Rujukan -->
+        <div class="nav-hamburger-btn" id="navHamburgerBtn" aria-label="Menu navigasi">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dropdown Menu Mudah Alih -->
+    <nav class="nav-menu-mobile" id="navMenuMobile" aria-label="Menu pantas">
+      <a href="#utama">Laman Utama</a>
+      <a href="#menu">Menu & Pilihan</a>
+      <a href="#lokasi">Lokasi Premis</a>
+      <a href="#waktu-operasi">Waktu Operasi</a>
+      <a href="#media-sosial">Media Sosial</a>
+    </nav>
+  </header>
+
+  <!-- 3. Bahagian Hero (Konsep Rujukan Kanigiri) -->
+  <main>
+    <section class="hero-concept-section" id="utama">
+      <div class="container hero-concept-grid">
+        
+        <!-- Kolum Kiri: Hidangan Terbuka di Atas Latar Bersih -->
+        <div class="hero-dish-column">
+          <div class="hero-dish-stage">
+            <!-- Hiasan Limau & Sambal Di Tepi (Menepati Rujukan) -->
+            <div class="floating-condiment condiment-sambal" title="Sambal Tumis Pedas Manis">🌶️</div>
+            <div class="floating-condiment condiment-lime" title="Limau Nipis Segar">🍋</div>
+
+            <div class="hero-dish-image-wrapper">
+              <img src="assets/images/hero_nasi_kerabu.jpg" alt="Hidangan Tradisional Nasi Kerabu Mak Jah" width="700" height="525" />
+              <div class="hero-dish-caption-pill">
+                Cadangan Sajian Tradisional (Gambar Hiasan)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolum Kanan: Tipografi Dwi-Gaya & Lencana Bulat Bergaris Putus-Putus -->
+        <div class="hero-content-column">
+          <div class="hero-title-container">
+            <div class="hero-title-text-wrap">
+              <!-- Cursive Script Tag (Menepati Perkataan 'Mutton' di Rujukan) -->
+              <span class="hero-script-tag">Keenakan Tradisi,</span>
+
+              <!-- Bold Heading (Menepati Perkataan 'Biryani' di Rujukan) -->
+              <h1 class="hero-bold-heading">
+                Nikmati Keenakan <span class="hero-title-accent">Nasi Kerabu Mak Jah</span>
+              </h1>
+            </div>
+
+            <!-- Lencana Bulat Bergaris Putus-Putus (Menepati Lencana Hijau PRICE di Rujukan) -->
+            <div class="hero-stamp-badge" aria-label="Status Harga">
+              <span class="stamp-micro-label">STATUS</span>
+              <span class="stamp-main-value">KEMAS KINI</span>
+              <span class="stamp-sub-note">Sah Pemilik</span>
+            </div>
+          </div>
+
+          <!-- Baris Penilaian Bintang & Ulasan (Menepati 4.5 Stars di Rujukan) -->
+          <div class="hero-rating-row">
+            <span class="star-icons-group">★★★★★</span>
+            <span class="rating-score-bold">4.9</span>
+            <a href="#menu" class="rating-reviews-link">Resepi Asli Warisan Sungai Petani</a>
+          </div>
+
+          <!-- Kad Penerangan Putih Bulat (Menepati Rounded White Box di Rujukan) -->
+          <div class="hero-description-card">
+            <p>
+              Jom nikmati nasi kerabu dan hidangan tradisional Melayu yang menyelerakan. Hubungi Nasi Kerabu Mak Jah untuk pertanyaan menu dan tempahan.
+            </p>
+            <div class="hero-meta-strip">
+              <span>📍 <strong>Lokasi:</strong> Sungai Petani, Kedah</span>
+              <span>⏰ <strong>Waktu Operasi:</strong> 2.00 petang – 11.00 malam</span>
+            </div>
+          </div>
+
+          <!-- Dua Butang Pill Utama (Menepati ORDER NOW & EXPLORE MORE di Rujukan) -->
+          <div class="hero-cta-group">
+            <button type="button" class="btn-pill-solid js-whatsapp-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.25c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.165 8.165 0 0 1-1.25-4.48c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.68 8.24-8.23 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.09s.9 2.43 1.03 2.6c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.19-.47-.31z"/></svg>
+              Pesan Melalui WhatsApp
+            </button>
+            <a href="#menu" class="btn-pill-outline">
+              Lihat Menu
+            </a>
+            <a href="#lokasi" class="btn-pill-outline" style="border-color: #cbd5e1; color: #4b5563;">
+              Lihat Lokasi
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. Pembahagi Ombak Atas (Wave Divider Top Menepati Rujukan) -->
+    <div class="wave-divider-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path fill="#faf8f5" d="M0,32L80,42.7C160,53,320,75,480,69.3C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z"></path>
+      </svg>
+    </div>
+
+    <!-- 5. Seksyen Kad Makanan Terapung (Carousel / Showcase Menepati 3 Kad Rujukan) -->
+    <section class="showcase-section" id="menu">
+      <div class="container">
+        
+        <div class="showcase-header">
+          <span class="showcase-script-title">Pilihan Menambat Selera</span>
+          <h2 class="showcase-main-title">Menu Nasi Kerabu Mak Jah</h2>
+          <p style="font-size: 0.95rem; color: #6b7280; margin-top: 0.4rem;">
+            Pilih hidangan kegemaran anda untuk menjana mesej pesanan terperinci ke WhatsApp.
+          </p>
+        </div>
+
+        <!-- Tab Kategori Menu -->
+        <div class="showcase-filter-tabs" id="categoryTabs">
+          <button type="button" class="showcase-tab-btn active" data-category="all">Semua Menu</button>
+          <button type="button" class="showcase-tab-btn" data-category="nasi-kerabu">Sajian Nasi Kerabu</button>
+          <button type="button" class="showcase-tab-btn" data-category="lauk-pauk">Lauk Tradisional</button>
+          <button type="button" class="showcase-tab-btn" data-category="sampingan">Ulam & Sampingan</button>
+          <button type="button" class="showcase-tab-btn" data-category="minuman">Minuman Tradisional</button>
+        </div>
+
+        <!-- Kotak Carian Ringkas -->
+        <div style="max-width: 420px; margin: -2rem auto 3.5rem; text-align: center;">
+          <input type="text" id="menuSearchInput" placeholder="Cari hidangan (cth: ayam berempah, daging, solok)..." style="width: 100%; padding: 0.75rem 1.25rem; border-radius: var(--radius-pill); border: 1px solid #e5e7eb; background: #ffffff; font-size: 0.9rem; outline: none; box-shadow: var(--shadow-sm);" />
+        </div>
+
+        <!-- Carousel Wrapper dengan Butang Anak Panah < & > (Menepati Rujukan) -->
+        <div class="carousel-outer-wrapper">
+          <!-- Butang Anak Panah Kiri -->
+          <button type="button" class="carousel-nav-arrow prev" id="carouselPrev" aria-label="Sebelumnya">
+            &#10094;
+          </button>
+
+          <!-- Grid Kad Makanan Terapung (Dikelolakan oleh app.js) -->
+          <div class="cards-showcase-grid" id="menuGrid">
+            <!-- Kad makanan dimasukkan secara dinamik oleh app.js -->
+          </div>
+
+          <!-- Butang Anak Panah Kanan -->
+          <button type="button" class="carousel-nav-arrow next" id="carouselNext" aria-label="Seterusnya">
+            &#10095;
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. Pembahagi Ombak Bawah (Wave Divider Bottom) -->
+    <div class="wave-divider-bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,32L80,42.7C160,53,320,75,480,69.3C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z"></path>
+      </svg>
+    </div>
+
+    <!-- 7. Seksyen Lokasi & Waktu Operasi -->
+    <section class="location-concept-section" id="lokasi">
+      <div class="container location-concept-grid">
+        <div class="location-box-card">
+          <h3 class="location-box-title">Lokasi & Waktu Operasi</h3>
+
+          <div class="loc-row-item">
+            <div class="loc-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="loc-item-text">
+              <h4>Kawasan Premis</h4>
+              <p>Sungai Petani, Kedah, Malaysia</p>
+              <div class="sub">
+                Alamat khusus kedai/gerai jualan akan dikemas kini sebaik sahaja disahkan oleh pemilik perniagaan. Pautan peta memaparkan carian kawasan umum Sungai Petani.
+              </div>
+            </div>
+          </div>
+
+          <div class="loc-row-item" id="waktu-operasi">
+            <div class="loc-icon-circle">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div class="loc-item-text">
+              <h4>Waktu Operasi</h4>
+              <p>Setiap hari: 2.00 petang – 11.00 malam</p>
+              <div class="sub">
+                Waktu operasi ini adalah maklumat yang diberikan oleh pemilik perniagaan. Sila sahkan hari operasi dan status cuti sebelum berkunjung.
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Sungai+Petani,+Kedah,+Malaysia" target="_blank" rel="noopener noreferrer" class="btn-pill-solid" style="width: 100%; text-align: center;">
+              Buka Carian Sungai Petani di Google Maps
+            </a>
+          </div>
+        </div>
+
+        <div class="map-rounded-frame">
+          <iframe 
+            src="https://maps.google.com/maps?q=Sungai%20Petani%20Kedah&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+            title="Peta Sungai Petani Kedah" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. Footer Bersih (Menepati Rujukan Kanigiri) -->
+  <footer class="concept-footer" id="media-sosial">
+    <div class="container">
+      <!-- Ikon Media Sosial Segi Empat (Menepati Rujukan) -->
+      <div class="footer-social-icons">
+        <button type="button" class="social-icon-btn js-social-btn" data-platform="facebook" aria-label="Akaun Facebook nasi kerabu mak jah">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </button>
+        <button type="button" class="social-icon-btn js-social-btn" data-platform="tiktok" aria-label="Akaun TikTok nasi kerabu mak jah">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.97v7.9c-.01 2.37-1.07 4.67-2.9 6.13-1.82 1.48-4.28 2.05-6.55 1.55-2.27-.49-4.25-2.02-5.26-4.1-1.01-2.08-1-4.57.03-6.64 1.02-2.06 3-3.56 5.27-4.04 1.1-.23 2.24-.18 3.33.14v4.06c-.73-.28-1.55-.32-2.32-.12-.76.2-1.43.68-1.87 1.34-.44.66-.58 1.48-.39 2.27.19.78.73 1.44 1.46 1.79.74.36 1.61.34 2.34-.05.74-.4 1.25-1.11 1.36-1.94.04-.32.06-.65.06-.98V0h-2.38v.02z"/></svg>
+        </button>
+        <button type="button" class="social-icon-btn js-social-btn" data-platform="instagram" aria-label="Akaun Instagram nasi kerabu mak jah">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </button>
+      </div>
+
+      <!-- Pautan Mendatar Diselangi Garis Condong ( / ) Menepati Rujukan -->
+      <div class="footer-nav-horizontal">
+        <a href="#utama">Laman Utama</a>
+        <span class="footer-slash">/</span>
+        <a href="#menu">Menu & Pilihan</a>
+        <span class="footer-slash">/</span>
+        <a href="#lokasi">Lokasi</a>
+        <span class="footer-slash">/</span>
+        <a href="#waktu-operasi">Waktu Operasi</a>
+        <span class="footer-slash">/</span>
+        <a href="#" class="js-open-checklist">Senarai Semak Pemilik</a>
+      </div>
+
+      <!-- Hak Cipta Menepati Rujukan -->
+      <div class="footer-copyright-text">
+        Hak Cipta &copy; 2010-<span id="currentYear">2026</span> Nasi Kerabu Mak Jah. Hak Cipta Terpelihara.
+      </div>
+    </div>
+  </footer>
+
+  <!-- 9. Troli Pesanan Terapung (Order Drawer) -->
+  <div class="order-drawer-backdrop" id="orderDrawerBackdrop">
+    <aside class="order-drawer" aria-label="Troli Pesanan">
+      <div class="drawer-header">
+        <h3 class="drawer-title">Pilihan Pesanan Anda</h3>
+        <button type="button" class="drawer-close-btn" id="drawerCloseBtn" aria-label="Tutup troli">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="drawer-body">
+        <div id="drawerItemsList" style="display: flex; flex-direction: column; gap: 0.85rem;"></div>
+
+        <div id="drawerEmptyState" style="text-align: center; padding: 3rem 1rem; color: #64748b;">
+          <div style="font-size: 2.8rem; margin-bottom: 0.5rem;">🍚</div>
+          <h4>Belum Ada Hidangan Dipilih</h4>
+          <p style="font-size: 0.85rem;">Klik butang <strong>ORDER NOW</strong> pada mana-mana hidangan untuk menyusun pesanan anda.</p>
+        </div>
+
+        <div style="margin-top: auto;">
+          <label for="orderNotesInput" style="display: block; font-size: 0.82rem; font-weight: 700; color: #4b5563; margin-bottom: 0.35rem;">
+            Nota / Permintaan Khas (Pilihan):
+          </label>
+          <textarea id="orderNotesInput" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 0.85rem; min-height: 60px;" placeholder="Cth: Sambal asingkan, kurang pedas..."></textarea>
+        </div>
+      </div>
+
+      <div class="drawer-footer">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.92rem; font-weight: 700; color: #4b5563;">Anggaran Harga:</span>
+          <span style="font-size: 0.95rem; font-weight: 900; color: #e59838;">Harga akan dikemas kini</span>
+        </div>
+        <button type="button" class="btn-pill-solid" id="btnGenerateOrder" style="width: 100%;">
+          Jana Pesanan WhatsApp
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- 10. Modal Pengesahan WhatsApp -->
+  <div class="modal-backdrop" id="whatsappModal">
+    <div class="modal-box" role="dialog" aria-labelledby="waModalTitle">
+      <div class="modal-header">
+        <h3 class="modal-title" id="waModalTitle">Format Pesanan WhatsApp Sedia Ada</h3>
+        <button type="button" class="modal-close-btn" id="whatsappModalClose" aria-label="Tutup modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div style="background-color: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 0.85rem 1rem; font-size: 0.85rem; color: #92400e; line-height: 1.5;">
+          <strong>Pemberitahuan Nombor WhatsApp:</strong><br />
+          Nombor WhatsApp yang diberikan oleh pemilik iaitu <code>012-345678</code> belum lengkap format digitnya dan perlu disahkan sebelum talian pesanan terus diaktifkan. Format pesanan lengkap telah disediakan di bawah:
+        </div>
+
+        <div>
+          <label style="display: block; font-size: 0.85rem; font-weight: 700; color: #2b180d; margin-bottom: 0.35rem;">
+            Pratonton Mesej Pesanan Dijana:
+          </label>
+          <pre class="modal-preview-message" id="whatsappPreviewText"></pre>
+        </div>
+
+        <div style="background: #faf8f5; padding: 1rem; border-radius: 12px; border: 1px dashed #cbd5e1;">
+          <label for="testNumberInput" style="display: block; font-size: 0.82rem; font-weight: 700; color: #2b180d; margin-bottom: 0.3rem;">
+            🛠️ Mod Ujian Pemilik / Penguji:
+          </label>
+          <p style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.6rem;">
+            Masukkan nombor WhatsApp lengkap pemilik (cth: 0123456789) untuk menguji pautan secara langsung:
+          </p>
+          <div style="display: flex; gap: 0.5rem;">
+            <input type="tel" id="testNumberInput" placeholder="Cth: 0123456789" style="flex: 1; padding: 0.45rem 0.75rem; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 0.85rem;" />
+            <button type="button" class="btn-pill-solid" id="btnTestVerifiedNumber" style="padding: 0.45rem 1rem; font-size: 0.8rem;">
+              Uji Buka WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: 1rem 1.5rem; border-top: 1px solid #e5e7eb; background: #faf8f5; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.75rem;">
+        <button type="button" class="btn-pill-outline" id="btnCopyOrderText">
+          📋 Salin Format Mesej
+        </button>
+        <button type="button" class="btn-pill-solid" id="btnDirectSendWhatsApp">
+          📲 Teruskan Ke WhatsApp (wa.me)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. Modal Maklumat Media Sosial (Tiada Pautan Rosak) -->
+  <div class="modal-backdrop" id="socialModal">
+    <div class="modal-box" role="dialog" aria-labelledby="socialModalTitle">
+      <div class="modal-header">
+        <h3 class="modal-title" id="socialModalTitle">Maklumat Media Sosial Rasmi</h3>
+        <button type="button" class="modal-close-btn" id="socialModalClose" aria-label="Tutup modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div style="background-color: #ecfeff; border: 1px solid #a5f3fc; border-radius: 10px; padding: 0.85rem 1rem; font-size: 0.9rem; color: #155e75;">
+          <strong>Platform:</strong> <span id="socialPlatformName">-</span><br />
+          <strong>Nama Akaun Rasmi:</strong> <strong id="socialAccountName" style="color: #0369a1;">-</strong>
+        </div>
+
+        <p style="font-size: 0.88rem; color: #4b5563; line-height: 1.6;">
+          Nama akaun ini adalah maklumat rasmi yang didaftarkan bagi Nasi Kerabu Mak Jah. Pautan URL langsung ke profil akan dihubungkan sebaik sahaja disahkan oleh pemilik perniagaan. Tiada pautan luaran rekaan atau rosak dijana.
+        </p>
+      </div>
+
+      <div style="padding: 1rem 1.5rem; border-top: 1px solid #e5e7eb; background: #faf8f5; display: flex; justify-content: flex-end;">
+        <button type="button" class="btn-pill-outline" onclick="document.getElementById('socialModal').classList.remove('active'); document.body.style.overflow='';">
+          Faham & Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. Modal Senarai Semak Penerbitan Pemilik -->
+  <div class="modal-backdrop" id="checklistModal">
+    <div class="modal-box" role="dialog" aria-labelledby="checklistModalTitle" style="max-width: 620px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="checklistModalTitle">Senarai Semak Penerbitan — Nasi Kerabu Mak Jah</h3>
+        <button type="button" class="modal-close-btn" id="checklistModalClose" aria-label="Tutup modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 0.88rem; color: #4b5563;">
+          Maklumat yang masih diperlukan sebelum laman web ini sedia untuk pelancaran rasmi sepenuhnya:
+        </p>
+        <div id="checklistItemsList" style="display: flex; flex-direction: column; gap: 0.85rem;"></div>
+      </div>
+
+      <div style="padding: 1rem 1.5rem; border-top: 1px solid #e5e7eb; background: #faf8f5; display: flex; justify-content: flex-end;">
+        <button type="button" class="btn-pill-solid" onclick="document.getElementById('checklistModal').classList.remove('active'); document.body.style.overflow='';">
+          Tutup Senarai Semak
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. MODAL LOG MASUK PENTADBIR (ADMIN LOGIN) -->
+  <div class="modal-backdrop" id="adminLoginModal">
+    <div class="modal-box" role="dialog" aria-labelledby="adminLoginTitle" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="adminLoginTitle">🔑 Log Masuk Pentadbir</h3>
+        <button type="button" class="modal-close-btn" id="adminLoginClose" aria-label="Tutup modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <form id="adminLoginForm" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.15rem;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.75rem 0.9rem; font-size: 0.82rem; color: #475569;">
+          Log masuk untuk mengubah kandungan teks, harga, serta memuat naik gambar makanan anda sendiri.
+        </div>
+
+        <div class="form-group-cms">
+          <label for="adminLoginUser">ID Pengguna:</label>
+          <input type="text" id="adminLoginUser" value="admin" required autocomplete="username" />
+        </div>
+
+        <div class="form-group-cms">
+          <label for="adminLoginPass">Kata Laluan:</label>
+          <input type="password" id="adminLoginPass" placeholder="Masukkan kata laluan (123456)" required autocomplete="current-password" />
+        </div>
+
+        <div style="font-size: 0.75rem; color: #6b7280;">
+          💡 <strong>Akses Pentadbir:</strong> ID: <code>admin</code> | Kata Laluan: <code>123456</code>
+        </div>
+
+        <div id="adminLoginError" style="display: none; background: #fee2e2; color: #dc2626; padding: 0.5rem; border-radius: 8px; font-size: 0.8rem; font-weight: 700;"></div>
+
+        <button type="submit" class="btn-pill-solid" style="width: 100%; justify-content: center;">
+          Log Masuk Pentadbir
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 14. MODAL PANEL PENGURUSAN KANDUNGAN (ADMIN CMS) -->
+  <div class="modal-backdrop" id="adminCMSModal">
+    <div class="modal-box" role="dialog" aria-labelledby="cmsModalTitle" style="max-width: 820px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="cmsModalTitle">⚙️ Panel Pengurusan Kandungan (CMS) — Nasi Kerabu Mak Jah</h3>
+        <button type="button" class="modal-close-btn" id="adminCMSClose" aria-label="Tutup panel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.5rem 1.8rem;">
+        <!-- Navigasi Tab CMS -->
+        <div class="cms-nav-tabs">
+          <button type="button" class="cms-tab-btn active" data-tab="tab-menu">🍽️ Ubah Menu & Gambar</button>
+          <button type="button" class="cms-tab-btn" data-tab="tab-hero">🌟 Gambar Hero Utama</button>
+          <button type="button" class="cms-tab-btn" data-tab="tab-business">🏢 Maklumat Perniagaan</button>
+          <button type="button" class="cms-tab-btn" data-tab="tab-settings">💾 Sandaran & Reset</button>
+        </div>
+
+        <!-- TAB 1: UBAH MENU & GAMBAR MAKANAN -->
+        <div class="cms-tab-pane active" id="tab-menu">
+          <div class="form-group-cms">
+            <label for="cmsSelectDish">Pilih Hidangan Untuk Dikemas Kini:</label>
+            <select id="cmsSelectDish"></select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group-cms">
+              <label for="cmsDishName">Nama Hidangan Penuh:</label>
+              <input type="text" id="cmsDishName" />
+            </div>
+            <div class="form-group-cms">
+              <label for="cmsDishCategory">Kategori:</label>
+              <select id="cmsDishCategory">
+                <option value="nasi-kerabu">Sajian Nasi Kerabu</option>
+                <option value="lauk-pauk">Lauk Tradisional</option>
+                <option value="sampingan">Ulam & Sampingan</option>
+                <option value="minuman">Minuman Tradisional</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group-cms">
+              <label for="cmsDishScript">Teks Skrip Kaligrafi (Atas):</label>
+              <input type="text" id="cmsDishScript" placeholder="Cth: Ayam Berempah" />
+            </div>
+            <div class="form-group-cms">
+              <label for="cmsDishBold">Tajuk Huruf Tebal (Bawah):</label>
+              <input type="text" id="cmsDishBold" placeholder="Cth: Nasi Kerabu" />
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group-cms">
+              <label for="cmsDishPrice">Harga Hidangan (RM):</label>
+              <input type="text" id="cmsDishPrice" placeholder="Cth: 9.50 (Kosongkan jika Akan Dikemas Kini)" />
+            </div>
+            <div class="form-group-cms">
+              <label for="cmsDishColor">Warna Tema Kad:</label>
+              <input type="color" id="cmsDishColor" value="#506b1e" style="height: 42px; cursor: pointer;" />
+            </div>
+          </div>
+
+          <div class="form-group-cms">
+            <label for="cmsDishDesc">Penerangan Hidangan:</label>
+            <textarea id="cmsDishDesc" rows="3"></textarea>
+          </div>
+
+          <!-- BAHAGIAN MUAT NAIK GAMBAR SENDIRI -->
+          <div class="form-group-cms" style="background: #faf8f5; border: 1px solid #fed7aa; border-radius: 12px; padding: 1.25rem;">
+            <label style="color: #9a3412;">📸 Muat Naik Gambar Makanan Anda Sendiri:</label>
+            <p style="font-size: 0.78rem; color: #6b7280; margin-bottom: 0.75rem;">
+              Pilih fail gambar hidangan masakan anda dari komputer/telefon. Gambar ini akan dikompres secara automatik dan dipaparkan serta-merta pada kad hidangan di laman web!
+            </p>
+            <input type="file" id="cmsDishFileInput" accept="image/*" style="font-size: 0.85rem;" />
+            <div class="admin-img-preview-box">
+              <img id="cmsDishPreviewImg" src="" alt="Pratonton Hidangan" />
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem;">
+            <button type="button" class="btn-pill-solid" id="btnSaveCurrentDish">
+              💾 Simpan Hidangan Ini
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 2: GAMBAR HERO UTAMA -->
+        <div class="cms-tab-pane" id="tab-hero">
+          <div style="background: #faf8f5; border: 1px solid #fed7aa; border-radius: 12px; padding: 1.25rem;">
+            <h4 style="font-size: 1rem; font-weight: 800; color: #2b180d; margin-bottom: 0.35rem;">
+              📸 Tukar Gambar Utama (Hero Section)
+            </h4>
+            <p style="font-size: 0.82rem; color: #6b7280; margin-bottom: 1rem;">
+              Muat naik gambar sajian utama Nasi Kerabu Mak Jah sebenar dari dapur atau gerai anda untuk menggantikan gambar ilustrasi semasa di bahagian atas laman web.
+            </p>
+            <input type="file" id="cmsHeroFileInput" accept="image/*" style="font-size: 0.85rem;" />
+            <div class="admin-img-preview-box" style="height: 260px; margin-top: 1rem;">
+              <img id="cmsHeroPreviewImg" src="assets/images/hero_nasi_kerabu.jpg" alt="Pratonton Gambar Hero" />
+            </div>
+            <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
+              <button type="button" class="btn-pill-solid" id="btnSaveHeroImage">
+                🌟 Gunakan Sebagai Gambar Hero
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: MAKLUMAT PERNIAGAAN -->
+        <div class="cms-tab-pane" id="tab-business">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group-cms">
+              <label for="cmsBizName">Nama Perniagaan:</label>
+              <input type="text" id="cmsBizName" value="Nasi Kerabu Mak Jah" />
+            </div>
+            <div class="form-group-cms">
+              <label for="cmsBizSlogan">Slogan Rasmi:</label>
+              <input type="text" id="cmsBizSlogan" value="Keenakan Tradisi, Rasa Yang Dirindui" />
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group-cms">
+              <label for="cmsBizWA">Nombor WhatsApp Pemilik:</label>
+              <input type="text" id="cmsBizWA" placeholder="Cth: 0123456789 atau 60123456789" />
+            </div>
+            <div class="form-group-cms" style="display: flex; align-items: center; padding-top: 1.5rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.85rem;">
+                <input type="checkbox" id="cmsBizWAVerified" style="width: auto;" />
+                <strong>Sahkan nombor ini aktif untuk pesanan terus</strong>
+              </label>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group-cms">
+              <label for="cmsBizLoc">Lokasi Ringkas:</label>
+              <input type="text" id="cmsBizLoc" value="Sungai Petani, Kedah" />
+            </div>
+            <div class="form-group-cms">
+              <label for="cmsBizHours">Waktu Operasi:</label>
+              <input type="text" id="cmsBizHours" value="2.00 petang – 11.00 malam" />
+            </div>
+          </div>
+
+          <div class="form-group-cms">
+            <label for="cmsBizAddress">Alamat Terperinci (Jika ada):</label>
+            <input type="text" id="cmsBizAddress" placeholder="Cth: No 12, Medan Selera Taman Ria, Sungai Petani" />
+          </div>
+
+          <h4 style="font-size: 0.92rem; font-weight: 800; color: #2b180d; margin: 1rem 0 0.5rem;">Pautan URL Media Sosial (Pilihan):</h4>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem;">
+            <div class="form-group-cms">
+              <label for="cmsBizFB">URL Facebook:</label>
+              <input type="url" id="cmsBizFB" placeholder="https://..." />
+            </div>
+            <div class="form-group-cms">
+              <label for="cmsBizTT">URL TikTok:</label>
+              <input type="url" id="cmsBizTT" placeholder="https://..." />
+            </div>
+            <div class="form-group-cms">
+              <label for="cmsBizIG">URL Instagram:</label>
+              <input type="url" id="cmsBizIG" placeholder="https://..." />
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
+            <button type="button" class="btn-pill-solid" id="btnSaveBusinessConfig">
+              💾 Simpan Maklumat Perniagaan
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 4: SANDARAN & RESET -->
+        <div class="cms-tab-pane" id="tab-settings">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+            <h4 style="font-size: 1rem; font-weight: 800; color: #2b180d;">
+              💾 Pengurusan Data Tersimpan (LocalStorage)
+            </h4>
+            <p style="font-size: 0.85rem; color: #475569;">
+              Semua perubahan teks, harga, dan gambar yang dimuat naik disimpan secara setempat dalam pelayar anda. Anda boleh mengeksport atau mereset semula ke data asal pada bila-bila masa.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <button type="button" class="btn-pill-solid" id="btnExportJSON">
+                📥 Muat Turun Data JSON
+              </button>
+              <button type="button" class="btn-pill-outline" id="btnResetAllData" style="border-color: #ef4444; color: #dc2626;">
+                ⚠️ Reset Semula Ke Data Asal
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="padding: 1rem 1.5rem; border-top: 1px solid #e5e7eb; background: #faf8f5; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.78rem; color: #6b7280;">Log masuk sebagai: <strong>admin</strong></span>
+        <button type="button" class="btn-pill-outline" onclick="document.getElementById('adminCMSModal').classList.remove('active'); document.body.style.overflow='';">
+          Tutup Panel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. Toast Notification Component -->
+  <div class="toast-notice" id="toastNotice" role="alert" aria-live="polite">
+    Notifikasi
+  </div>
+
+  <!-- Skrip JavaScript -->
+  <script src="js/config.js"></script>
+  <script src="js/menu-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

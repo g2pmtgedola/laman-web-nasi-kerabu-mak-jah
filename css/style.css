@@ -1,0 +1,1542 @@
+/* ==========================================================================
+   NASI KERABU MAK JAH — KONSEP REKA BENTUK KONTEMPORARI (RUJUKAN KANIGIRI)
+   - Tipografi Dwi-Gaya: Script Cursive (Dancing Script) + Bold Display (Plus Jakarta Sans)
+   - Kad Makanan Bertema Warna Kaya dengan Bekas Makanan Terapung (Pop-Out)
+   - Lencana Harga Bulat Bergaris Putus-Putus
+   - Pembahagi Ombak Organik (Wave Dividers)
+   - Butang Pill Anggun & Navigasi Carousel (< & >)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Tipografi */
+  --font-base: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-script: 'Dancing Script', cursive;
+
+  /* Warna Utama & Tona Reka Bentuk Rujukan */
+  --color-primary: #0284c7;           /* Biru Kerabu Bunga Telang */
+  --color-primary-dark: #0369a1;
+  --color-primary-deep: #0f172a;      /* Teks Gelap Pekat */
+  
+  --color-ochre: #d97706;             /* Warm Amber/Ochre Butang Utama */
+  --color-ochre-light: #fef3c7;
+  --color-ochre-hover: #b45309;
+
+  --color-olive-card: #506b1e;        /* Kad Tema Hijau Ulam (Jeera Style) */
+  --color-amber-card: #df9033;        /* Kad Tema Amber/Mustard (Kadai Style) */
+  --color-teal-card: #0284c7;         /* Kad Tema Biru Kerabu (Palak Style) */
+  --color-card-dark-btn: #26190e;     /* Butang Gelap Dalam Kad */
+
+  /* Warna Latar */
+  --color-bg-white: #ffffff;
+  --color-bg-soft: #faf8f5;           /* Latar Lembut Bawah Ombak */
+  --color-border: #e5e7eb;
+
+  /* Bayang-bayang */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.12);
+  --shadow-popout: 0 24px 40px -10px rgba(0, 0, 0, 0.38), 0 8px 16px -4px rgba(0, 0, 0, 0.2);
+
+  /* Radius Lengkungan */
+  --radius-pill: 9999px;
+  --radius-card: 28px;
+  --radius-dish: 24px;
+}
+
+/* Reset Asas */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-base);
+  color: var(--color-primary-deep);
+  background-color: var(--color-bg-white);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background-color: var(--color-bg-white);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Top Notice Bar (Pengesahan & Ketelusan Maklumat)
+   -------------------------------------------------------------------------- */
+.top-notice-bar {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 0.78rem;
+  padding: 0.35rem 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  z-index: 60;
+}
+
+.top-notice-badge {
+  background: #0284c7;
+  color: #ffffff;
+  padding: 0.12rem 0.55rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.top-notice-btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 0.18rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.top-notice-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   Header / Navigasi (Gaya Bersih Menepati Rujukan Kanigiri)
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+  transition: all 0.25s ease;
+}
+
+.site-header.scrolled {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+/* Jenama & Wordmark */
+.brand-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-symbol-icon {
+  width: 44px;
+  height: 44px;
+  background: #fdf6ec;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ochre);
+}
+
+.brand-text-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #2b180d;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.brand-subtitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-ochre);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Navigasi Kanan: Call Pill, Order Pill & Menu */
+.nav-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Call / WhatsApp Pill (Menepati Rujukan) */
+.nav-call-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.15rem;
+  background-color: #f7f3ed;
+  border: 1px solid #ede5d8;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #2b180d;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+.nav-call-pill:hover {
+  background-color: #eee6d8;
+  transform: translateY(-1px);
+}
+
+.call-icon-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #16a34a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.call-icon-circle svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Order Pill Button (Menepati Butang Login Rujukan) */
+.nav-order-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  background: #e59838;
+  color: #ffffff;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(229, 152, 56, 0.35);
+  transition: all 0.2s ease;
+}
+
+.nav-order-pill:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(229, 152, 56, 0.45);
+}
+
+.order-count-badge {
+  background: #ffffff;
+  color: #d97706;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-pill);
+}
+
+/* Hamburger Toggle */
+.nav-hamburger-btn {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-hamburger-btn span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #e59838;
+  border-radius: 2px;
+}
+
+/* Menu Dropdown Mudah Alih */
+.nav-menu-mobile {
+  display: none;
+  position: absolute;
+  top: 82px;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 1.5rem;
+  flex-direction: column;
+  gap: 1rem;
+  border-bottom: 2px solid #e59838;
+  box-shadow: var(--shadow-lg);
+}
+
+.nav-menu-mobile.open {
+  display: flex;
+}
+
+.nav-menu-mobile a {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2b180d;
+  padding: 0.5rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   Bahagian Hero (Reka Bentuk Berkonsepkan Rujukan)
+   -------------------------------------------------------------------------- */
+.hero-concept-section {
+  padding: 1.25rem 0 2rem;
+  background: #ffffff;
+  position: relative;
+}
+
+.hero-concept-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Kolum Kiri: Hidangan Terbuka dengan Bayang Realistik & Hiasan Ulam */
+.hero-dish-column {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-dish-stage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+.hero-dish-image-wrapper {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px -10px rgba(38, 25, 14, 0.28), 0 8px 18px -4px rgba(0, 0, 0, 0.12);
+  border: 4px solid #ffffff;
+  aspect-ratio: 4/3;
+  background-color: #f8fafc;
+}
+
+.hero-dish-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-dish-image-wrapper:hover img {
+  transform: scale(1.03);
+}
+
+.hero-dish-caption-pill {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
+/* Hiasan Iringan Sisi Hero (Condiment Dips & Lime) */
+.floating-condiment {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border: 2px solid #f1f5f9;
+}
+
+.condiment-lime {
+  width: 52px;
+  height: 52px;
+  bottom: -10px;
+  right: 15px;
+  font-size: 1.5rem;
+}
+
+.condiment-sambal {
+  width: 58px;
+  height: 58px;
+  top: 10px;
+  left: -15px;
+  font-size: 1.6rem;
+}
+
+/* Kolum Kanan: Tipografi Dwi-Gaya & Lencana Bulat */
+.hero-content-column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+/* Tajuk Bergaya Script + Bold */
+.hero-title-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+}
+
+.hero-title-text-wrap {
+  flex: 1;
+}
+
+.hero-script-tag {
+  font-family: var(--font-script);
+  font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+  color: #557320; /* Tona Hijau Ulam Menepati Rujukan */
+  line-height: 1.1;
+  display: block;
+  transform: rotate(-2deg);
+  margin-bottom: -0.2rem;
+}
+
+.hero-bold-heading {
+  font-size: clamp(1.95rem, 3vw, 2.75rem);
+  font-weight: 900;
+  color: #452a1b; /* Tona Coklat Gelap Kulinari */
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+}
+
+.hero-bold-heading span {
+  color: var(--color-primary);
+}
+
+/* Lencana Bulat Bergaris Putus-Putus (Menepati Badge Price di Rujukan) */
+.hero-stamp-badge {
+  position: static;
+  flex-shrink: 0;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: #5b7325; /* Tona Hijau Jeera Chawal */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.35rem;
+  box-shadow: 0 8px 18px rgba(91, 115, 37, 0.3);
+  border: 2px dashed rgba(255, 255, 255, 0.6);
+  outline: 2px solid #5b7325;
+  outline-offset: 2px;
+  animation: subtleFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes subtleFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+.stamp-micro-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.stamp-main-value {
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0.1rem 0;
+}
+
+.stamp-sub-note {
+  font-size: 0.6rem;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+/* Baris Bintang Penilaian & Slogan */
+.hero-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: -0.2rem;
+}
+
+.star-icons-group {
+  color: #e59838;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+}
+
+.rating-score-bold {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #2b180d;
+}
+
+.rating-reviews-link {
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Kotak Kad Penerangan (Menepati Rounded White Box di Rujukan) */
+.hero-description-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 0.95rem 1.35rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: 540px;
+}
+
+.hero-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px dashed #e5e7eb;
+  font-size: 0.8rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+/* Dua Butang Pill Utama (Menepati ORDER NOW & EXPLORE MORE) */
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+.btn-pill-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.75rem 1.6rem;
+  background: #e59838;
+  color: #ffffff;
+  border-radius: var(--radius-pill);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px rgba(229, 152, 56, 0.3);
+  transition: all 0.25s ease;
+}
+
+.btn-pill-solid:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(229, 152, 56, 0.4);
+}
+
+.btn-pill-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: #e59838;
+  border: 2px solid #e59838;
+  border-radius: var(--radius-pill);
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.btn-pill-outline:hover {
+  background: #fffbeb;
+  border-color: #d97706;
+  color: #d97706;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Pembahagi Ombak Organik (Wave Divider)
+   -------------------------------------------------------------------------- */
+.wave-divider-top {
+  width: 100%;
+  line-height: 0;
+  background: #ffffff;
+}
+
+.wave-divider-top svg {
+  width: 100%;
+  height: 38px;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Seksyen Kad Makanan Terapung (Carousel / Showcase)
+   -------------------------------------------------------------------------- */
+.showcase-section {
+  background-color: var(--color-bg-soft);
+  padding: 1.5rem 0 4rem;
+  position: relative;
+}
+
+.showcase-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 1.5rem;
+}
+
+.showcase-script-title {
+  font-family: var(--font-script);
+  font-size: 2.6rem;
+  color: #557320;
+  line-height: 1;
+}
+
+.showcase-main-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #2b180d;
+  letter-spacing: -0.02em;
+}
+
+/* Tab Kategori Menu Menepati Konsep */
+.showcase-filter-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 2rem;
+}
+
+.showcase-tab-btn {
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.88rem;
+  background: #ffffff;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.showcase-tab-btn:hover {
+  border-color: #e59838;
+  color: #e59838;
+}
+
+.showcase-tab-btn.active {
+  background: #e59838;
+  color: #ffffff;
+  border-color: #e59838;
+  box-shadow: 0 4px 12px rgba(229, 152, 56, 0.3);
+}
+
+/* Carousel Wrapper dengan Butang Anak Panah < & > */
+.carousel-outer-wrapper {
+  position: relative;
+  padding: 0 3.5rem;
+}
+
+.carousel-nav-arrow {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.carousel-nav-arrow:hover {
+  background: #ffffff;
+  color: #e59838;
+  border-color: #e59838;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: var(--shadow-lg);
+}
+
+.carousel-nav-arrow.prev {
+  left: 0;
+}
+
+.carousel-nav-arrow.next {
+  right: 0;
+}
+
+/* Grid Kad Makanan */
+.cards-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
+  padding-top: 50px; /* Ruang untuk bekas makanan pop-out */
+}
+
+/* Kad Berwarna (Menepati Kad Hijau, Amber, Zaitun dalam Rujukan) */
+.popout-food-card {
+  border-radius: var(--radius-card);
+  padding: 1.8rem 1.6rem 2rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.popout-food-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* Bekas Makanan Terapung (Pop-Out Food Container) */
+.popout-dish-container {
+  position: relative;
+  margin-top: -85px;
+  margin-bottom: 1.25rem;
+  width: 100%;
+  border-radius: var(--radius-dish);
+  overflow: visible;
+  filter: drop-shadow(0 16px 20px rgba(0, 0, 0, 0.35));
+}
+
+.dish-box-inner {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-dish);
+  overflow: hidden;
+  background-color: #0f172a;
+  border: 4px solid #1e293b;
+  position: relative;
+}
+
+.dish-box-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.popout-food-card:hover .dish-box-inner img {
+  transform: scale(1.06);
+}
+
+/* Lencana Harga Bulat Bergaris Putus-Putus di Atas Kad (Menepati Rujukan) */
+.card-circular-stamp {
+  position: absolute;
+  top: 15px;
+  right: -10px;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #2b180d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.35rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  border: 2px dashed #9ca3af;
+  z-index: 5;
+}
+
+.card-stamp-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6b7280;
+  letter-spacing: 0.05em;
+}
+
+.card-stamp-status {
+  font-size: 0.82rem;
+  font-weight: 900;
+  color: #047857;
+  line-height: 1.1;
+  margin: 0.1rem 0;
+}
+
+.card-stamp-sub {
+  font-size: 0.55rem;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+/* Teks Dalam Kad Berwarna */
+.card-script-name {
+  font-family: var(--font-script);
+  font-size: 2.1rem;
+  color: #fef08a; /* Kuning Lembut / Putih Berkrim */
+  line-height: 1;
+  margin-bottom: -0.2rem;
+}
+
+.card-bold-name {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.45rem;
+}
+
+.card-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-stars {
+  color: #fef08a;
+  font-size: 0.92rem;
+  letter-spacing: 1px;
+}
+
+.card-rating-num {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.card-description-text {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+/* Butang Gelap Dalam Kad (Menepati ORDER NOW di Rujukan) */
+.card-order-btn-dark {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  background: var(--color-card-dark-btn);
+  color: #ffffff;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.card-order-btn-dark:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   Seksyen Lokasi & Maklumat Premis
+   -------------------------------------------------------------------------- */
+.location-concept-section {
+  padding: 2.5rem 0 3.5rem;
+  background: #ffffff;
+}
+
+.location-concept-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.location-box-card {
+  background: #faf8f5;
+  border-radius: var(--radius-card);
+  padding: 2.2rem;
+  border: 1px solid #f0ece1;
+}
+
+.location-box-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #2b180d;
+  margin-bottom: 1.25rem;
+}
+
+.loc-row-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.loc-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-ochre);
+  flex-shrink: 0;
+}
+
+.loc-item-text h4 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: #9ca3af;
+  letter-spacing: 0.05em;
+}
+
+.loc-item-text p {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #2b180d;
+}
+
+.loc-item-text .sub {
+  font-size: 0.82rem;
+  color: #6b7280;
+  margin-top: 0.2rem;
+}
+
+.map-rounded-frame {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4/3;
+  border: 4px solid #ffffff;
+}
+
+.map-rounded-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Pembahagi Ombak Bawah (Wave Divider Bottom)
+   -------------------------------------------------------------------------- */
+.wave-divider-bottom {
+  width: 100%;
+  line-height: 0;
+  background: #faf8f5;
+}
+
+.wave-divider-bottom svg {
+  width: 100%;
+  height: 60px;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Footer (Menepati Rujukan Kanigiri)
+   - Ikon Media Sosial Segi Empat / Bulat
+   - Pautan Mendatar dengan Slash ( / )
+   - Hak Cipta di Bawah
+   -------------------------------------------------------------------------- */
+.concept-footer {
+  background: #ffffff;
+  padding: 2.5rem 0 3.5rem;
+  text-align: center;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.social-icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: #3e2617;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.social-icon-btn:hover {
+  background: #e59838;
+  transform: translateY(-2px);
+}
+
+.footer-nav-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #557320; /* Hijau Zaitun Rujukan */
+}
+
+.footer-nav-horizontal a:hover {
+  color: #e59838;
+}
+
+.footer-slash {
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+.footer-copyright-text {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* --------------------------------------------------------------------------
+   Order Drawer & Modals (Kekal Berfungsi Penuh)
+   -------------------------------------------------------------------------- */
+.order-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+
+.order-drawer-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.order-drawer {
+  position: fixed;
+  top: 0;
+  right: -460px;
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 101;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+  transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.order-drawer-backdrop.active .order-drawer {
+  right: 0;
+}
+
+.drawer-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #2b180d;
+}
+
+.drawer-close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  background-color: #f1f5f9;
+}
+
+.drawer-body {
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.drawer-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.drawer-item-name {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #2b180d;
+}
+
+.drawer-item-price-note {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.qty-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.drawer-footer {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+  background-color: #faf8f5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Modals */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  background: #ffffff;
+  width: 100%;
+  max-width: 540px;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #2b180d;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.modal-preview-message {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 12px;
+  font-family: monospace;
+  font-size: 0.82rem;
+  white-space: pre-wrap;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Toast */
+.toast-notice {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background-color: #0f172a;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-lg);
+  z-index: 300;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.toast-notice.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Responsif Mudah Alih */
+@media (max-width: 991px) {
+  .hero-concept-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .cards-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 5.5rem;
+  }
+
+  .location-concept-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-outer-wrapper {
+    padding: 0;
+  }
+
+  .carousel-nav-arrow {
+    display: none;
+  }
+
+  .nav-call-pill {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Sistem Pengurusan Kandungan Pentadbir (Admin CMS & Login)
+   -------------------------------------------------------------------------- */
+.admin-top-bar {
+  background: #111827;
+  color: #f3f4f6;
+  border-bottom: 2px solid #e59838;
+  padding: 0.35rem 1.25rem;
+  font-size: 0.8rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.admin-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.admin-status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 800;
+  color: #34d399;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.admin-status-indicator::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.admin-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.btn-admin-action {
+  background: #e59838;
+  color: #ffffff;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-admin-action:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+}
+
+.btn-admin-logout {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-admin-logout:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* Butang Login di Navigasi (Menepati Butang LOGIN Kanigiri) */
+.nav-login-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.15rem;
+  background: #f7f3ed;
+  border: 1px solid #ede5d8;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #78350f;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-login-pill:hover {
+  background: #fed7aa;
+  color: #9a3412;
+  transform: translateY(-1px);
+}
+
+/* Lencana Edit Terapung Pada Kad (Nampak Bila Admin Aktif) */
+.admin-card-edit-btn {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #fde047;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(253, 224, 71, 0.4);
+  display: none;
+}
+
+body.admin-mode-active .admin-card-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Tabs CMS Modal */
+.cms-nav-tabs {
+  display: flex;
+  border-bottom: 2px solid #e5e7eb;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.cms-tab-btn {
+  padding: 0.65rem 1.15rem;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #6b7280;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cms-tab-btn.active {
+  color: #d97706;
+  border-bottom-color: #d97706;
+}
+
+.cms-tab-pane {
+  display: none;
+}
+
+.cms-tab-pane.active {
+  display: block;
+}
+
+.form-group-cms {
+  margin-bottom: 1.15rem;
+}
+
+.form-group-cms label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #2b180d;
+  margin-bottom: 0.35rem;
+}
+
+.form-group-cms input,
+.form-group-cms textarea,
+.form-group-cms select {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.form-group-cms input:focus,
+.form-group-cms textarea:focus,
+.form-group-cms select:focus {
+  border-color: #e59838;
+  box-shadow: 0 0 0 3px rgba(229, 152, 56, 0.15);
+}
+
+.admin-img-preview-box {
+  width: 100%;
+  height: 180px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 2px dashed #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+.admin-img-preview-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .hero-cta-group {
+    flex-direction: column;
+  }
+
+  .btn-pill-solid, .btn-pill-outline {
+    width: 100%;
+  }
+
+  .hero-title-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-stamp-badge {
+    position: static;
+    margin: 0;
+    width: 74px;
+    height: 74px;
+  }
+
+  .stamp-main-value {
+    font-size: 0.8rem;
+  }
+}
+
